@@ -14,8 +14,8 @@ callHttpBin( () => {
       str += data;
      });
      response.on('end', function() {
-      var result = JSON.parse(str);
-      myips = result.origin;
+      const result = JSON.parse(str);
+      const myIps = result.origin;
       resolve()
      });
      }
