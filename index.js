@@ -1,21 +1,20 @@
 const http = require('http');
-const myName = ( () => {
+const myName = function(){
   console.log("Here is my IP address");
-});
-
-callHttpBin( () => {
+}
+function callHttpBin() {
   let promise = new Promise((resolve, reject) => {
     http.get(
      'http://httpbin.org/ip',
      function(response) {
-      const str="";
+      var str="";
       response.setEncoding('utf8');
-      response.on('data', (data) => {
+      response.on('data', function(data){
       str += data;
      });
      response.on('end', function() {
-      const result = JSON.parse(str);
-      const myIps = result.origin;
+      let result = JSON.parse(str);
+      let myIps = result.origin;
       resolve()
      });
      }
@@ -24,12 +23,9 @@ callHttpBin( () => {
 
 let result = await promise;
 result;
-});
-
-executeAsyncTask( () => {
+}
+function executeAsyncTask(){
   const valueA = await callHttpBin()
   const valueB = myName();
   console.log(valueB+" "+valueA)
-});
-
 // Output Here is my IP address 149.24.160.1
