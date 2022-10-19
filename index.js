@@ -3,8 +3,8 @@ const myName = function(){ //change var to const, camel case for variable name, 
     return "Here is my IP address"; //changed console log to return a sentence as it doesn't make sense to try and console log a console log.
 }; //added closing semi-colon
 
-function callHttpBin() { //camel case for entire function name and added n to fix/finish name properly, added async
-    return new Promise((resolve, reject) => {
+function callHttpBin() { //camel case for entire function name and added n to fix/finish name properly
+    return new Promise((resolve, reject) => { //removed the setting of a variable to just return the promise
         http.get(
             'http://httpbin.org/ip',
                 function(response) {
@@ -34,5 +34,5 @@ async function executeAsyncTask(){ //added async
   console.log(valueB + " " + valueA); //added closing semi-colon
 } //added closing bracket
 
-// Output Here is IP address 149.24.160.1
+// Output: Here is IP address 149.24.160.1
 executeAsyncTask();
